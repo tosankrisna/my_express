@@ -42,8 +42,7 @@ $data = $cs->detailCustomerService($id);
                     <input type="text" name="username" value="<?= $data['username'] ?>" class="form-control">
                   </div>
                   <div class="form-group">
-                    <label class="text-capitalize">password</label>
-                    <input type="password" name="password" value="<?= $data['password'] ?>" class="form-control">
+                    <input type="hidden" name="password" value="<?= $data['password'] ?>" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">jenis kelamin</label>
@@ -104,8 +103,9 @@ $data = $cs->detailCustomerService($id);
             </div>
           </div>
           <div class="row">
-            <div class="col-12 px-3 py-5">
-              <button type="submit" class="btn btn-md btn-primary float-right text-capitalize">edit data</button>
+            <div class="col-12 px-3 py-5 d-flex justify-content-center">
+              <button type="submit" class="btn btn-lg btn-primary mr-2 text-capitalize">edit data</button>
+              <a href="cardDetailCs.php?id=<?= $data['id_cs'] ?>" class="btn btn-lg btn-secondary text-capitalize">batal</a>
             </div>
           </div>
         </form>

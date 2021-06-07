@@ -12,7 +12,7 @@ $data = $kurir->detailKurir($id);
   <div class="content">
     <div class="container-fluid">
       <div class="row mx-2 mt-5 mb-3">
-        <h2>Detail Customer Service</h2>
+        <h2>Detail Kurir</h2>
       </div>
     </div>
 
@@ -20,7 +20,7 @@ $data = $kurir->detailKurir($id);
       <div class="card-body">
         <div class="row">
           <div class="col-12 col-md-4">
-            <h4>Data Customer Service</h4>
+            <h4>Data Kurir</h4>
             <hr>
             <div class="post">
               <table>
