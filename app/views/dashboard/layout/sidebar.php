@@ -24,14 +24,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-box"></i>
-            <p>
-              Paket
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
           <a href="../pages/customerService.php" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>
@@ -52,6 +44,14 @@
             <i class="nav-icon fas fa-truck"></i>
             <p>
               Kendaraan
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-box"></i>
+            <p>
+              Paket
             </p>
           </a>
         </li>

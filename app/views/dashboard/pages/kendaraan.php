@@ -43,17 +43,25 @@ if (isset($_POST['submit'])) {
                 <tbody>
 
                   <?php $i = 1; ?>
-                  <?php foreach ($results as $result) : ?>
+                  <?php if ($results) { ?>
+                    <?php foreach ($results as $result) : ?>
+                      <tr>
+                        <td><?= $i; ?></td>
+                        <td class="text-capitalize"><?= $result['nama_kendaraan'] ?></td>
+                        <td class="text-capitalize"><?= $result['jenis_kendaraan'] ?></td>
+                        <td class="text-uppercase"><?= $result['plat_nomor'] ?></td>
+                        <td class="text-capitalize"><?= $result['nama_kurir'] ?></td>
+                        <td><?= $result['no_telp'] ?></td>
+                      </tr>
+                      <?php $i++; ?>
+                    <?php endforeach ?>
+                  <?php } else { ?>
                     <tr>
-                      <td><?= $i; ?></td>
-                      <td class="text-capitalize"><?= $result['nama_kendaraan'] ?></td>
-                      <td class="text-capitalize"><?= $result['jenis_kendaraan'] ?></td>
-                      <td class="text-uppercase"><?= $result['plat_nomor'] ?></td>
-                      <td class="text-capitalize"><?= $result['nama_kurir'] ?></td>
-                      <td><?= $result['no_telp'] ?></td>
+                      <td colspan="6" class="text-center p-5">
+                        <h4>Tidak ada data kendaraan!</h4>
+                      </td>
                     </tr>
-                    <?php $i++; ?>
-                  <?php endforeach ?>
+                  <?php } ?>
 
                 </tbody>
               </table>

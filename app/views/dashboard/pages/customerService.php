@@ -57,21 +57,29 @@ if (isset($_POST['submit'])) {
                 <tbody>
 
                   <?php $i = 1; ?>
-                  <?php foreach ($results as $result) : ?>
+                  <?php if ($results) { ?>
+                    <?php foreach ($results as $result) : ?>
+                      <tr>
+                        <td><?= $i; ?></td>
+                        <td class="text-capitalize"><?= $result['nama_cs'] ?></td>
+                        <td><?= $result['email'] ?></td>
+                        <td class="text-capitalize"><?= $result['jenis_kelamin'] ?></td>
+                        <td><?= $result['no_telp'] ?></td>
+                        <td>
+                          <a href="../components/cardDetailCs.php?id=<?= $result['id_cs'] ?>" class="btn btn-primary btn-sm">
+                            <i class="fas fa-info-circle mr-1"></i>Detail
+                          </a>
+                        </td>
+                      </tr>
+                      <?php $i++; ?>
+                    <?php endforeach ?>
+                  <?php } else { ?>
                     <tr>
-                      <td><?= $i; ?></td>
-                      <td class="text-capitalize"><?= $result['nama_cs'] ?></td>
-                      <td><?= $result['email'] ?></td>
-                      <td class="text-capitalize"><?= $result['jenis_kelamin'] ?></td>
-                      <td><?= $result['no_telp'] ?></td>
-                      <td>
-                        <a href="../components/cardDetailCs.php?id=<?= $result['id_cs'] ?>" class="btn btn-primary btn-sm">
-                          <i class="fas fa-info-circle mr-1"></i>Detail
-                        </a>
+                      <td colspan="6" class="text-center p-5">
+                        <h4>Tidak ada data customer service!</h4>
                       </td>
                     </tr>
-                    <?php $i++; ?>
-                  <?php endforeach ?>
+                  <?php } ?>
 
                 </tbody>
               </table>

@@ -28,9 +28,8 @@ require_once '../layout/top.php';
             <label for="password">Password</label>
             <input type="password" name="password" class="form-control" id="password">
           </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="checkbox">
-            <label class="form-check-label" for="checkbox">Remember me</label>
+          <div class="form-group d-flex justify-content-end">
+            <a href="#" class="text-dark">Lupa password?</a>
           </div>
           <button type="submit" name="submit" class="btn btn-primary w-25 rounded-pill">Submit</button>
         </form>
