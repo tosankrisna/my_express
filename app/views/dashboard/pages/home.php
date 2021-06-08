@@ -31,52 +31,54 @@ $total_kendaraan = $kendaraan->getTotal();
             <div class="small-box-footer" style="height: 30px;"></div>
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <h3><?= $total_cs; ?></h3>
 
-              <p>Customer Service</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="small-box-footer" style="height: 30px;"></div>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner text-white">
-              <h3><?= $total_kurir; ?></h3>
+        <?php if ($_SESSION['level'] === 'admin') { ?>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3><?= $total_cs; ?></h3>
 
-              <p>Kurir</p>
+                <p>Customer Service</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="small-box-footer" style="height: 30px;"></div>
             </div>
-            <div class="icon">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="small-box-footer" style="height: 30px;"></div>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3><?= $total_kurir; ?></h3>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner text-white">
+                <h3><?= $total_kurir; ?></h3>
 
-              <p>Kendaraan</p>
+                <p>Kurir</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="small-box-footer" style="height: 30px;"></div>
             </div>
-            <div class="icon">
-              <i class="fas fa-truck"></i>
-            </div>
-            <div class="small-box-footer" style="height: 30px;"></div>
           </div>
-        </div>
-        <!-- ./col -->
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?= $total_kurir; ?></h3>
+
+                <p>Kendaraan</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-truck"></i>
+              </div>
+              <div class="small-box-footer" style="height: 30px;"></div>
+            </div>
+          </div>
+        <?php } ?>
+
       </div>
     </div><!-- /.container-fluid -->
   </section>

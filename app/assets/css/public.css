@@ -114,3 +114,9 @@
     margin: auto;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .header-cs {
+    font-size: 1.7em;
+  }
+}

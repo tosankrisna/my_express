@@ -14,13 +14,13 @@ if (isset($_POST['submit'])) {
 <div class="content-wrapper bg-white">
   <div class="content">
     <div class="container-fluid">
-      <div class="row px-2 pt-4">
+      <div class="row px-2 pt-4 d-flex justify-content-center justify-content-md-start">
         <h2>Data Kendaraan</h2>
       </div>
       <div class="row px-2 bg-white">
-        <div class="col-12">
-          <form action="" method="post" class="form-inline d-flex justify-content-end">
-            <input class="form-control mr-sm-2 w-25" type="search" name="search" placeholder="Masukan Nama Kurir atau Plat Nomor" aria-label="Search">
+        <div class="col-12 col-md-6 offset-md-6">
+          <form action="" method="post" class="form-inline d-flex justify-content-center justify-content-md-end">
+            <input class="form-control mr-sm-2 w-50" type="search" name="search" placeholder="Masukan Nama Kurir atau Plat Nomor" aria-label="Search">
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="submit"><i class="fas fa-search"></i></button>
           </form>
         </div>

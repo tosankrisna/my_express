@@ -20,7 +20,7 @@ if (!$_SESSION['login']) {
       <span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></span>
       <ul class="dropdown-menu mt-2 ml-3">
         <li class="px-3 py-2">
-          <a href="../../../controllers/logoutController.php" class="text-danger"><i class="fas fa-power-off mr-2"></i>Log Out</a>
+          <a href="../../../controllers/loginController.php?aksi=logout" class="text-danger"><i class="fas fa-power-off mr-2"></i>Log Out</a>
         </li>
       </ul>
     </li>

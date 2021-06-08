@@ -15,7 +15,7 @@ require_once '../layout/top.php';
           <i class="fas fa-arrow-left mb-4"></i>
           <span class="ml-1">Kembali</span>
         </a>
-        <form action="../../../controllers/loginController.php" method="post" id="form">
+        <form action="../../../controllers/loginController.php?aksi=login" method="post" id="form">
           <div class="label-form mb-5">
             <h3>Login User</h3>
             <span class="line-label"></span>
@@ -29,7 +29,7 @@ require_once '../layout/top.php';
             <input type="password" name="password" class="form-control" id="password">
           </div>
           <div class="form-group d-flex justify-content-end">
-            <a href="#" class="text-dark">Lupa password?</a>
+            <a href="lupaPassword.php" class="text-dark">Lupa password?</a>
           </div>
           <button type="submit" name="submit" class="btn btn-primary w-25 rounded-pill">Submit</button>
         </form>

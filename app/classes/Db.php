@@ -19,6 +19,11 @@ class Db
     }
   }
 
+  public function query($query)
+  {
+    return mysqli_query($this->conn, $query);
+  }
+
   public function singleView($query)
   {
     $data = mysqli_query($this->conn, $query);
@@ -36,23 +41,23 @@ class Db
     return $rows;
   }
 
-  public function add($query)
-  {
-    mysqli_query($this->conn, $query);
-  }
+  // public function add($query)
+  // {
+  //   mysqli_query($this->conn, $query);
+  // }
 
   public function multiadd($query)
   {
     mysqli_multi_query($this->conn, $query);
   }
 
-  public function update($query)
-  {
-    mysqli_query($this->conn, $query);
-  }
+  // public function update($query)
+  // {
+  //   mysqli_query($this->conn, $query);
+  // }
 
-  public function delete($query)
-  {
-    mysqli_query($this->conn, $query);
-  }
+  // public function delete($query)
+  // {
+  //   mysqli_query($this->conn, $query);
+  // }
 }

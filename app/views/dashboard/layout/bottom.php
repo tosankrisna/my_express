@@ -1,3 +1,5 @@
+</div>
+
 <script src="../../../assets/admin/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="../../../assets/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -35,7 +37,7 @@
 <script src="../../../assets/admin/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="../../../assets/js/form.js"></script>
 <script src="../../../assets/js/selectWilayah.js"></script>
-<script src="../../../assets/js/confirm.js"></script>
+<script src="../../../assets/js/confirmMessage.js"></script>
 </body>
 </body>
 

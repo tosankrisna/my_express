@@ -23,30 +23,32 @@
             <p>Home</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="../pages/customerService.php" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p>
-              Customer Service
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../pages/kurir.php" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p>
-              Kurir
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../pages/kendaraan.php" class="nav-link">
-            <i class="nav-icon fas fa-truck"></i>
-            <p>
-              Kendaraan
-            </p>
-          </a>
-        </li>
+        <?php if ($_SESSION['level'] === 'admin') { ?>
+          <li class="nav-item">
+            <a href="../pages/customerService.php" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Customer Service
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../pages/kurir.php" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Kurir
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../pages/kendaraan.php" class="nav-link">
+              <i class="nav-icon fas fa-truck"></i>
+              <p>
+                Kendaraan
+              </p>
+            </a>
+          </li>
+        <?php } ?>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-box"></i>
