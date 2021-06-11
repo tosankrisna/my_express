@@ -23,6 +23,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="../../../assets/admin/plugins/summernote/summernote-bs4.min.css">
   <link rel="stylesheet" href="../../../assets/admin/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../../assets/admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.css">
   <link rel="stylesheet" href="../../../assets/admin/plugins/sweetalert2/sweetalert2.css">
   <link rel="stylesheet" href="../../../assets/css/public.css">
   <title>My Express</title>

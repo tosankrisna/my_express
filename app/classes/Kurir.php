@@ -36,7 +36,7 @@ class Kurir extends Db
 
     $id_alamat = $this->db->conn->insert_id;
     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
-    $sql_kurir = "INSERT INTO tb_kurir VALUES('', '$nama', '$email', '$username', '$pass_hash', '$jenis_kelamin', '$no_telp', '$id_admin', '$id_alamat')";
+    $sql_kurir = "INSERT INTO tb_kurir VALUES('', '$nama', '$email', '$username', '$pass_hash', '$jenis_kelamin', '$no_telp', '$id_alamat', '$id_admin')";
     $this->db->query($sql_kurir);
 
     $id_kurir = $this->db->conn->insert_id;

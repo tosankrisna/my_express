@@ -2,7 +2,7 @@
 
 require_once '../init.php';
 
-$log = new login();
+$log = new login;
 
 $aksi = $_GET['aksi'];
 

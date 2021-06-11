@@ -26,14 +26,14 @@ class Db
 
   public function singleView($query)
   {
-    $data = mysqli_query($this->conn, $query);
+    $data = $this->query($query);
     $row = mysqli_fetch_assoc($data);
     return $row;
   }
 
   public function multiView($query)
   {
-    $data = mysqli_query($this->conn, $query);
+    $data = $this->query($query);
     $rows = [];
     while ($row = mysqli_fetch_assoc($data)) {
       $rows[] = $row;
@@ -41,23 +41,8 @@ class Db
     return $rows;
   }
 
-  // public function add($query)
-  // {
-  //   mysqli_query($this->conn, $query);
-  // }
-
   public function multiadd($query)
   {
     mysqli_multi_query($this->conn, $query);
   }
-
-  // public function update($query)
-  // {
-  //   mysqli_query($this->conn, $query);
-  // }
-
-  // public function delete($query)
-  // {
-  //   mysqli_query($this->conn, $query);
-  // }
 }

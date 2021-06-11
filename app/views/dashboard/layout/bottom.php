@@ -36,7 +36,7 @@
 <script src="../../../assets/admin/plugins/select2/js/select2.min.js"></script>
 <script src="../../../assets/admin/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script src="../../../assets/js/form.js"></script>
-<script src="../../../assets/js/selectWilayah.js"></script>
+<script src="../../../assets/js/selectKurir.js"></script>
 <script src="../../../assets/js/confirmMessage.js"></script>
 <script src="../../../assets/js/totalBayar.js"></script>
 <script src="../../../assets/js/generateResi.js"></script>

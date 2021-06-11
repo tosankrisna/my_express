@@ -10,7 +10,7 @@ require_once '../layout/sidebar.php';
         <h2>Tambah Paket</h2>
       </div>
       <section class="content">
-        <form action="../../../controllers/kurirController.php?aksi=tambah" method="post">
+        <form action="../../../controllers/paketController.php?aksi=tambah" method="post">
           <div class="row mx-1">
             <div class="col-md-4">
               <div class="card card-secondary">
@@ -163,6 +163,12 @@ require_once '../layout/sidebar.php';
                       <option value="regular">Regular (3-5 Hari)</option>
                       <option value="ekonomi">Ekonomi (5-7 Hari)</option>
                       <option value="super kilat">Super Kilat (1 Hari)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="text-capitalize">kurir</label>
+                    <select class="form-control custom-select w-100" id="select_kurir" name="kurir">
+                      <option value="0">Pilih Kurir</option>
                     </select>
                   </div>
                   <div class="form-group">
