@@ -3,8 +3,8 @@ require_once '../layout/navbar.php';
 require_once '../layout/sidebar.php';
 require_once '../../../init.php';
 
-$cs = new CustomerService;
-$results = $cs->viewCustomerService();
+$paket = new Paket;
+$results = $paket->viewPaket();
 
 if (isset($_POST['submit'])) {
   $results = $cs->searchCustomerService($_POST['search']);
@@ -53,26 +53,52 @@ if (isset($_POST['submit'])) {
                     <th>Nama Pengirim</th>
                     <th>Nama Penerima</th>
                     <th>Nama Kurir</th>
-                    <th>Biaya Kirim</th>
+                    <th>Total Bayar</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Kacamata Hitam</td>
-                    <td>1234567890</td>
-                    <td><span class="badge badge-secondary p-2">Belum Dikirim</span></td>
-                    <td>Katchaa Supply</td>
-                    <td>Adi Arifin</td>
-                    <td>Dede Andika</td>
-                    <td>Rp. 125.000</td>
-                    <td>
-                      <a href="../components/cardDetailKurir.php?id=<?= $result['id_kurir'] ?>" class="btn btn-primary btn-sm">
-                        <i class="fas fa-info-circle mr-1"></i>Detail
-                      </a>
-                    </td>
-                  </tr>
+
+                  <?php $i = 1; ?>
+                  <?php if ($results) { ?>
+                    <?php foreach ($results as $result) : ?>
+                      <tr>
+                        <td><?= $i; ?></td>
+                        <td class="text-capitalize"><?= $result['nama_paket'] ?></td>
+                        <td><?= $result['no_resi'] ?></td>
+                        <td class="text-capitalize">
+                          <?php if ($result['status_paket'] === 'belum dikirim') { ?>
+                            <span class="badge badge-secondary p-2">
+                            <?php } else if ($result['status_paket'] === 'sedang dikirim') { ?>
+                              <span class="badge badge-warning p-2">
+                              <?php } else if ($result['status_paket'] === 'selesai dikirim') { ?>
+                                <span class="badge badge-success p-2">
+                                <?php } else { ?>
+                                  <span class="badge badge-danger p-2">
+                                  <?php } ?>
+                                  <?= $result['status_paket'] ?>
+                                  </span>
+                        </td>
+                        <td class="text-capitalize"><?= $result['nama_pengirim'] ?></td>
+                        <td class="text-capitalize"><?= $result['nama_penerima'] ?></td>
+                        <td class="text-capitalize"><?= $result['nama_kurir'] ?></td>
+                        <td class="text-capitalize">Rp.<?= $result['total_bayar'] ?></td>
+                        <td>
+                          <a href="../components/cardDetailPaket.php?id=<?= $result['id_paket'] ?>" class="btn btn-primary btn-sm">
+                            <i class="fas fa-info-circle mr-1"></i>Detail
+                          </a>
+                        </td>
+                      </tr>
+                      <?php $i++; ?>
+                    <?php endforeach ?>
+                  <?php } else { ?>
+                    <tr>
+                      <td colspan="6" class="text-center p-5">
+                        <h4>Tidak ada data paket!</h4>
+                      </td>
+                    </tr>
+                  <?php } ?>
+
                 </tbody>
               </table>
             </div>

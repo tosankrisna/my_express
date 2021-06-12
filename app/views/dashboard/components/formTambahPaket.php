@@ -30,7 +30,7 @@ require_once '../layout/sidebar.php';
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">jenis kelamin</label>
-                    <select class="form-control custom-select" name="jenis_kelamin">
+                    <select class="form-control custom-select" name="jenis_kelamin_pengirim">
                       <option selected disabled>Pilih Jenis Kelamin</option>
                       <option value="laki-laki">Laki-Laki</option>
                       <option value="perempuan">Perempuan</option>
@@ -38,30 +38,31 @@ require_once '../layout/sidebar.php';
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">No Telp</label>
-                    <input type="number" name="no_telp" class="form-control">
+                    <input type="number" name="no_telp_pengirim" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">alamat</label>
-                    <input type="text" name="alamat" class="form-control">
+                    <input type="text" name="alamat_pengirim" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">provinsi</label>
-                    <input type="text" name="provinsi" class="form-control">
+                    <input type="text" name="provinsi_pengirim" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">kabupaten/kota</label>
-                    <input type="text" name="kabupaten" class="form-control">
+                    <input type="text" name="kabupaten_pengirim" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">kecamatan</label>
-                    <input type="text" name="kecamatan" class="form-control">
+                    <input type="text" name="kecamatan_pengirim" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">kode_pos</label>
-                    <input type="number" name="kode_pos" class="form-control">
+                    <input type="number" name="kode_pos_pengirim" class="form-control">
                   </div>
                   <div class="form-group">
                     <input type="hidden" name="id_penginput" value="<?= $_SESSION['id'] ?>" class="form-control">
+                    <input type="hidden" name="session_level" value="<?= $_SESSION['level'] ?>" class="form-control">
                   </div>
                 </div>
               </div>
@@ -84,7 +85,7 @@ require_once '../layout/sidebar.php';
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">jenis kelamin</label>
-                    <select class="form-control custom-select" name="jenis_kelamin">
+                    <select class="form-control custom-select" name="jenis_kelamin_penerima">
                       <option selected disabled>Pilih Jenis Kelamin</option>
                       <option value="laki-laki">Laki-Laki</option>
                       <option value="perempuan">Perempuan</option>
@@ -92,27 +93,27 @@ require_once '../layout/sidebar.php';
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">No Telp</label>
-                    <input type="number" name="no_telp" class="form-control">
+                    <input type="number" name="no_telp_penerima" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">alamat</label>
-                    <input type="text" name="alamat" class="form-control">
+                    <input type="text" name="alamat_penerima" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">provinsi</label>
-                    <input type="text" name="provinsi" class="form-control">
+                    <input type="text" name="provinsi_penerima" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">kabupaten/kota</label>
-                    <input type="text" name="kabupaten" class="form-control">
+                    <input type="text" name="kabupaten_penerima" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">kecamatan</label>
-                    <input type="text" name="kecamatan" class="form-control">
+                    <input type="text" name="kecamatan_penerima" class="form-control">
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">kode_pos</label>
-                    <input type="number" name="kode_pos" class="form-control">
+                    <input type="number" name="kode_pos_penerima" class="form-control">
                   </div>
                 </div>
               </div>
@@ -173,14 +174,17 @@ require_once '../layout/sidebar.php';
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">nomor resi</label>
-                    <input type="text" name="nomor_resi" class="form-control" id="nomor_resi" disabled>
+                    <input type="text" name="nomor_resi" class="form-control" id="nomor_resi" readonly>
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">total bayar</label>
-                    <input type="number" name="total_bayar" class="form-control" id="total_bayar" disabled>
+                    <input type="number" name="total_bayar" class="form-control" id="total_bayar" readonly>
                   </div>
                   <div class="form-group">
                     <input type="hidden" name="status_paket" value="belum dikirim" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <input type="hidden" name="keterangan" value="-" class="form-control">
                   </div>
                 </div>
               </div>
