@@ -95,8 +95,9 @@ require_once '../layout/sidebar.php';
             </div>
           </div>
           <div class="row">
-            <div class="col-12 px-3 py-5">
-              <button type="submit" class="btn btn-md btn-primary float-right text-capitalize">tambah data</button>
+            <div class="col-12 px-3 py-5 d-flex justify-content-center">
+              <button type="submit" class="btn btn-md btn-primary mr-2 text-capitalize">tambah data</button>
+              <a href="../pages/customerService.php" class="btn btn-md btn-secondary text-capitalize">batal</a>
             </div>
           </div>
         </form>

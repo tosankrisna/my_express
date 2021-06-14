@@ -230,17 +230,8 @@ $data = $paket->detailPaket($id);
           </div>
         </div>
         <div class="text-center mt-5 mb-3">
-          <?php if ($_SESSION['level'] === 'kurir' && $data['data_one']['status_paket'] !== 'selesai dikirim') { ?>
-            <a href="formUpdateTracking.php?id=<?= $data['data_one']['id_tracking'] ?>" class="btn btn-md btn-secondary text-white mr-2">
-              <i class="fas fa-pen mr-1"></i>Update Tracking
-            </a>
-          <?php } else if ($_SESSION['level'] === 'admin') { ?>
-            <?php if ($data['data_one']['status_paket'] === 'belum dikirim') { ?>
-              <a href="formEditPaket.php?id=<?= $data['data_one']['id_paket'] ?>" class="btn btn-md btn-warning text-white mr-2">
-                <i class="fas fa-pen mr-1"></i>Edit
-              </a>
-            <?php } ?>
-            <a onclick="confirmDeletePaket(<?= $data['data_one']['id_paket'] ?>, <?= $data['data_one']['id_alamat_pengirim'] ?>, <?= $data['data_one']['id_pengirim'] ?>, <?= $data['data_two']['id_penerima'] ?>, <?= $data['data_two']['id_alamat_penerima'] ?>, <?= $data['data_one']['id_tracking'] ?>)" class="btn btn-md btn-danger">
+          <?php if ($_SESSION['level'] === 'admin') { ?>
+            <a onclick="confirmDeleteHistory(<?= $data['data_one']['id_paket'] ?>, <?= $data['data_one']['id_alamat_pengirim'] ?>, <?= $data['data_one']['id_pengirim'] ?>, <?= $data['data_two']['id_penerima'] ?>, <?= $data['data_two']['id_alamat_penerima'] ?>, <?= $data['data_one']['id_tracking'] ?>)" class="btn btn-md btn-danger">
               <i class="fas fa-trash mr-1"></i>Hapus
             </a>
           <?php } ?>

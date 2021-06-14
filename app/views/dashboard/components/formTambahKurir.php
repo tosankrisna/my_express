@@ -114,7 +114,7 @@ require_once '../layout/sidebar.php';
                     <select class="form-control custom-select" name="jenis_kendaraan">
                       <option selected disabled>Pilih Jenis Kendaraan</option>
                       <option value="motor">Motor</option>
-                      <option value="mobil pickup">Mobil Pickup</option>
+                      <option value="mobil box">Mobil Box</option>
                       <option value="truk">Truk</option>
                     </select>
                   </div>
@@ -128,8 +128,8 @@ require_once '../layout/sidebar.php';
           </div>
           <div class="row">
             <div class="col-12 px-3 py-5 d-flex justify-content-center">
-              <button type="submit" class="btn btn-lg btn-primary mr-2 text-capitalize">tambah data</button>
-              <button type="button" class="btn btn-lg btn-secondary text-capitalize">batal</button>
+              <button type="submit" class="btn btn-md btn-primary mr-2 text-capitalize">tambah data</button>
+              <a href="../pages/kurir.php" type="button" class="btn btn-md btn-secondary text-capitalize">batal</a>
             </div>
           </div>
         </form>

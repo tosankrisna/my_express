@@ -122,15 +122,15 @@ $data = $kurir->detailKurir($id);
                     <select class="form-control custom-select" name="jenis_kendaraan">
                       <?php if ($data['jenis_kendaraan'] === 'motor') { ?>
                         <option value="motor" selected>Motor</option>
-                        <option value="mobil pickup">Mobil Pickup</option>
+                        <option value="mobil box">Mobil Box</option>
                         <option value="truk">Truk</option>
-                      <?php } else if ($data['jenis_kendaraan'] === 'mobil pickup') { ?>
+                      <?php } else if ($data['jenis_kendaraan'] === 'mobil box') { ?>
                         <option value="motor">Motor</option>
-                        <option value="mobil pickup" selected>Mobil Pickup</option>
+                        <option value="mobil box">Mobil Box</option>
                         <option value="truk">Truk</option>
                       <?php } else { ?>
                         <option value="motor">Motor</option>
-                        <option value="mobil pickup">Mobil Pickup</option>
+                        <option value="mobil box">Mobil Box</option>
                         <option value="truk" selected>Truk</option>
                       <?php } ?>
                     </select>
@@ -145,8 +145,8 @@ $data = $kurir->detailKurir($id);
           </div>
           <div class="row">
             <div class="col-12 px-3 py-5 d-flex justify-content-center">
-              <button type="submit" class="btn btn-lg btn-primary mr-2 text-capitalize">edit data</button>
-              <a href="cardDetailKurir.php?id=<?= $data['id_kurir'] ?>" class="btn btn-lg btn-secondary text-capitalize">batal</a>
+              <button type="submit" class="btn btn-md btn-primary mr-2 text-capitalize">edit data</button>
+              <a href="cardDetailKurir.php?id=<?= $data['id_kurir'] ?>" class="btn btn-md btn-secondary text-capitalize">batal</a>
             </div>
           </div>
         </form>

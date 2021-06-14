@@ -4,19 +4,10 @@ require_once '../layout/sidebar.php';
 require_once '../../../init.php';
 
 $paket = new Paket;
-
-if ($_SESSION['level'] === 'admin' or $_SESSION['level'] === 'customer service') {
-  $results = $paket->viewPaket();
-} else {
-  $results = $paket->viewPaketKurir($_SESSION['id']);
-}
+$results = $paket->viewHistory();
 
 if (isset($_POST['submit'])) {
-  if ($_SESSION['level'] === 'admin' or $_SESSION['level'] === 'customer service') {
-    $results = $paket->searchPaket($_POST['search']);
-  } else {
-    $results = $paket->searchPaketKurir($_SESSION['id'], $_POST['search']);
-  }
+  $results = $paket->searchPaket($_POST['search']);
 }
 ?>
 
@@ -24,18 +15,12 @@ if (isset($_POST['submit'])) {
   <div class="content">
     <div class="container-fluid">
       <div class="row px-2 pt-4 d-flex justify-content-center justify-content-md-start">
-        <h2 class="header">Data Paket</h2>
+        <h2 class="header">Data History Pengiriman</h2>
       </div>
 
       <div class="row px-2 bg-white">
         <?php if ($_SESSION['level'] === 'admin' or $_SESSION['level'] === 'customer service') { ?>
           <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start">
-            <a href="../components/formTambahPaket.php" class="btn btn-sm btn-primary mt-2 mr-1 px-3 rounded-pill">
-              <span class="text-white">
-                <i class="fas fa-user-circle mr-1"></i>
-                Tambah Data
-              </span>
-            </a>
             <a href="#" class="btn btn-sm btn-warning mt-2 px-3 rounded-pill">
               <span class="text-white">
                 <i class="fas fa-print mr-1"></i>
@@ -104,15 +89,9 @@ if (isset($_POST['submit'])) {
                         <td class="text-capitalize"><?= $result['nama_kurir'] ?></td>
                         <td class="text-capitalize">Rp.<?= $result['total_bayar'] ?></td>
                         <td>
-                          <?php if ($_SESSION['level'] === 'kurir' && $result['status_paket'] === 'belum dikirim') { ?>
-                            <a href="../../../controllers/paketController.php?aksi=proses&id_tracking=<?= $result['id_tracking'] ?>" class="btn btn-warning btn-sm">
-                              <i class="fas fa-check mr-1"></i>Proses
-                            </a>
-                          <?php } else { ?>
-                            <a href="../components/cardDetailPaket.php?id=<?= $result['id_paket'] ?>" class="btn btn-primary btn-sm">
-                              <i class="fas fa-info-circle mr-1"></i>Detail
-                            </a>
-                          <?php } ?>
+                          <a href="../components/cardDetailPaket.php?id=<?= $result['id_paket'] ?>" class="btn btn-primary btn-sm">
+                            <i class="fas fa-info-circle mr-1"></i>Detail
+                          </a>
                         </td>
                       </tr>
                       <?php $i++; ?>

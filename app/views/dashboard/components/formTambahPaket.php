@@ -1,6 +1,11 @@
 <?php
 require_once '../layout/navbar.php';
 require_once '../layout/sidebar.php';
+require_once '../../../init.php';
+
+$kurir = new Kurir;
+
+$dataSelect = $kurir->selectKurir();
 ?>
 
 <div class="content-wrapper bg-white">
@@ -168,8 +173,11 @@ require_once '../layout/sidebar.php';
                   </div>
                   <div class="form-group">
                     <label class="text-capitalize">kurir</label>
-                    <select class="form-control custom-select w-100" id="select_kurir" name="kurir">
-                      <option value="0">Pilih Kurir</option>
+                    <select class="form-control custom-select" name="kurir" id="kurir">
+                      <option selected disabled>Pilih Kurir</option>
+                      <?php foreach ($dataSelect as $select) { ?>
+                        <option value="<?= $select['id_kurir'] ?>"><?= $select['nama_kurir'] ?> (<?= $select['jenis_kendaraan'] ?>)</option>
+                      <?php } ?>
                     </select>
                   </div>
                   <div class="form-group">
@@ -192,8 +200,8 @@ require_once '../layout/sidebar.php';
           </div>
           <div class="row">
             <div class="col-12 px-3 py-5 d-flex justify-content-center">
-              <button type="submit" class="btn btn-lg btn-primary mr-2 text-capitalize">tambah data</button>
-              <button type="button" class="btn btn-lg btn-secondary text-capitalize">batal</button>
+              <button type="submit" class="btn btn-md btn-primary mr-2 text-capitalize">tambah data</button>
+              <a href="../pages/paket.php" type="button" class="btn btn-md btn-secondary text-capitalize">batal</a>
             </div>
           </div>
         </form>

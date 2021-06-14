@@ -64,4 +64,11 @@ class Kurir extends Db
 
     return $this->db->multiView($sql);
   }
+
+  public function selectKurir()
+  {
+    $sql = "SELECT tb_kurir.id_kurir, tb_kurir.nama_kurir, tb_kendaraan.id_kurir, tb_kendaraan.jenis_kendaraan FROM tb_kurir JOIN tb_kendaraan ON tb_kurir.id_kurir = tb_kendaraan.id_kurir";
+
+    return $this->db->multiView($sql);
+  }
 }

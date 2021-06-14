@@ -3,9 +3,16 @@ require_once '../layout/navbar.php';
 require_once '../layout/sidebar.php';
 require_once '../../../init.php';
 
+$paket = new Paket;
 $cs = new CustomerService;
 $kurir = new Kurir;
 $kendaraan = new Kendaraan;
+
+if ($_SESSION['level'] === 'admin' or $_SESSION['level'] === 'customer service') {
+  $total_paket = $paket->getTotal();
+} else {
+  $total_paket = $paket->getTotalByKurir($_SESSION['id']);
+}
 
 $total_cs = $cs->getTotal();
 $total_kurir = $kurir->getTotal();
@@ -21,7 +28,7 @@ $total_kendaraan = $kendaraan->getTotal();
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>150</h3>
+              <h3><?= $total_paket ?></h3>
 
               <p>Paket</p>
             </div>
