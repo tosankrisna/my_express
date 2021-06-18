@@ -104,8 +104,8 @@ $data = $cs->detailCustomerService($id);
           </div>
           <div class="row">
             <div class="col-12 px-3 py-5 d-flex justify-content-center">
-              <button type="submit" class="btn btn-lg btn-primary mr-2 text-capitalize">edit data</button>
-              <a href="cardDetailCs.php?id=<?= $data['id_cs'] ?>" class="btn btn-lg btn-secondary text-capitalize">batal</a>
+              <button type="submit" class="btn btn-md btn-primary mr-2 text-capitalize">edit data</button>
+              <a href="cardDetailCs.php?id=<?= $data['id_cs'] ?>" class="btn btn-md btn-secondary text-capitalize">batal</a>
             </div>
           </div>
         </form>

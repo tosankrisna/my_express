@@ -114,6 +114,10 @@
   height: calc(2.25rem + 2px) !important;
 }
 
+.cetak-billing {
+  display: none;
+}
+
 @media screen and (max-width: 425px) {
   .img-login {
     display: none;
@@ -136,5 +140,11 @@
 @media screen and (max-width: 320px) {
   .header-cs {
     font-size: 1.7em;
+  }
+}
+
+@media print {
+  .cetak-billing {
+    display: block;
   }
 }

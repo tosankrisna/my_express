@@ -240,7 +240,7 @@ $dataSelect = $kurir->selectKurir();
           <div class="row">
             <div class="col-12 px-3 py-3 d-flex justify-content-center">
               <button type="submit" class="btn btn-md btn-primary mr-2 text-capitalize">edit data</button>
-              <button type="button" class="btn btn-md btn-secondary text-capitalize">batal</button>
+              <a href="cardDetailPaket.php?id=<?= $data['data_one']['id_paket'] ?>" type="button" class="btn btn-md btn-secondary text-capitalize">batal</a>
             </div>
           </div>
         </form>

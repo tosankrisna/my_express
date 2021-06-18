@@ -16,6 +16,9 @@ require_once 'top.php';
             <a class="nav-link text-dark" href="../pages/tracking.php">Tracking</a>
           </li>
           <li class="nav-item mr-3">
+            <a class="nav-link text-dark" href="../pages/cekOngkir.php">Cek Ongkir</a>
+          </li>
+          <li class="nav-item mr-3">
             <a class="nav-link text-dark" href="../pages/services.php">Services</a>
           </li>
           <li class="nav-item mr-3">

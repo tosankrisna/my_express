@@ -235,14 +235,26 @@ $data = $paket->detailPaket($id);
               <i class="fas fa-pen mr-1"></i>Update Tracking
             </a>
           <?php } else if ($_SESSION['level'] === 'admin') { ?>
+            <a href="cetakBilling.php?id=<?= $data['data_one']['id_paket'] ?>" class="btn btn-md btn-primary text-white mr-2">
+              <i class="fas fa-print mr-1"></i>Cetak Billing
+            </a>
+            <?php if ($data['data_one']['status_paket'] === 'belum dikirim') { ?>
+              <a href="formEditPaket.php?id=<?= $data['data_one']['id_paket'] ?>" class="btn btn-md btn-warning text-white mr-2">
+                <i class="fas fa-pen mr-1"></i>Edit
+              </a>
+              <a onclick="confirmDeletePaket(<?= $data['data_one']['id_paket'] ?>, <?= $data['data_one']['id_alamat_pengirim'] ?>, <?= $data['data_one']['id_pengirim'] ?>, <?= $data['data_two']['id_penerima'] ?>, <?= $data['data_two']['id_alamat_penerima'] ?>, <?= $data['data_one']['id_tracking'] ?>)" class="btn btn-md btn-danger">
+                <i class="fas fa-trash mr-1"></i>Hapus
+              </a>
+            <?php } ?>
+          <?php } else if ($_SESSION['level'] === 'customer service') { ?>
+            <a href="formEditPaket.php?id=<?= $data['data_one']['id_paket'] ?>" class="btn btn-md btn-primary text-white mr-2">
+              <i class="fas fa-print mr-1"></i>Cetak Billing
+            </a>
             <?php if ($data['data_one']['status_paket'] === 'belum dikirim') { ?>
               <a href="formEditPaket.php?id=<?= $data['data_one']['id_paket'] ?>" class="btn btn-md btn-warning text-white mr-2">
                 <i class="fas fa-pen mr-1"></i>Edit
               </a>
             <?php } ?>
-            <a onclick="confirmDeletePaket(<?= $data['data_one']['id_paket'] ?>, <?= $data['data_one']['id_alamat_pengirim'] ?>, <?= $data['data_one']['id_pengirim'] ?>, <?= $data['data_two']['id_penerima'] ?>, <?= $data['data_two']['id_alamat_penerima'] ?>, <?= $data['data_one']['id_tracking'] ?>)" class="btn btn-md btn-danger">
-              <i class="fas fa-trash mr-1"></i>Hapus
-            </a>
           <?php } ?>
         </div>
       </div>

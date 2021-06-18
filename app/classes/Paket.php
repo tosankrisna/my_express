@@ -13,13 +13,13 @@ class Paket extends Db
 
   public function getTotal()
   {
-    $sql = "SELECT * FROM tb_paket";
+    $sql = "SELECT tb_paket.*, tb_tracking.* FROM tb_paket JOIN tb_tracking ON tb_paket.id_paket = tb_tracking.id_paket WHERE tb_tracking.status_paket != 'selesai dikirim'";
     return count($this->db->multiView($sql));
   }
 
   public function getTotalByKurir($id)
   {
-    $sql = "SELECT * FROM tb_paket WHERE id_kurir = '$id'";
+    $sql = "SELECT tb_paket.*, tb_tracking.* FROM tb_paket JOIN tb_tracking ON tb_paket.id_paket = tb_tracking.id_paket WHERE tb_tracking.status_paket != 'selesai dikirim' AND tb_paket.id_kurir = '$id'";
     return count($this->db->multiView($sql));
   }
 
