@@ -35,9 +35,15 @@ $data = $paket->detailUpdateTracking($id);
                       <?php if ($data['status_paket'] === 'sedang dikirim') { ?>
                         <option value="sedang dikirim" selected>Sedang Dikirim</option>
                         <option value="selesai dikirim">Selesai Dikirim</option>
-                      <?php } else { ?>
+                        <option value="gagal dikirim">Gagal Dikirim</option>
+                      <?php } else if ($data['status_paket'] === 'selesai dikirim') { ?>
                         <option value="sedang dikirim">Sedang Dikirim</option>
                         <option value="selesai dikirim" selected>Selesai Dikirim</option>
+                        <option value="gagal dikirim">Gagal Dikirim</option>
+                      <?php } else { ?>
+                        <option value="sedang dikirim">Sedang Dikirim</option>
+                        <option value="selesai dikirim">Selesai Dikirim</option>
+                        <option value="gagal dikirim" selected>Gagal Dikirim</option>
                       <?php } ?>
                     </select>
                   </div>

@@ -118,6 +118,11 @@
   display: none;
 }
 
+.dropdown-menu.filter-menu.show {
+  transform: translate3d(-185px, 45px, 0px) !important;
+  width: 275px;
+}
+
 @media screen and (max-width: 425px) {
   .img-login {
     display: none;

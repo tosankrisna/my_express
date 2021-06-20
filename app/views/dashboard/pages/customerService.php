@@ -25,12 +25,12 @@ if (isset($_POST['submit'])) {
               Tambah Data
             </span>
           </a>
-          <a href="#" class="btn btn-sm btn-warning mt-2 px-3 rounded-pill">
+          <!-- <a href="#" class="btn btn-sm btn-warning mt-2 px-3 rounded-pill">
             <span class="text-white">
               <i class="fas fa-print mr-1"></i>
               Cetak Data
             </span>
-          </a>
+          </a> -->
         </div>
         <div class="col-12 col-md-6">
           <form action="" method="post" class="form-inline d-flex justify-content-center justify-content-md-end">

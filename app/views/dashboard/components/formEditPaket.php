@@ -232,6 +232,7 @@ $dataSelect = $kurir->selectKurir();
                     <input type="hidden" name="id_penerima" value="<?= $data['data_two']['id_penerima'] ?>" class=" form-control">
                     <input type="hidden" name="id_paket" value="<?= $data['data_one']['id_paket'] ?>" class=" form-control">
                     <input type="hidden" name="id_tracking" value="<?= $data['data_one']['id_tracking'] ?>" class=" form-control">
+                    <input type="hidden" name="no_pengiriman" value="<?= $data['data_one']['no_pengiriman'] ?>" class=" form-control">
                   </div>
                 </div>
               </div>

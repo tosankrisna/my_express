@@ -166,6 +166,11 @@ $data = $paket->detailPaket($id);
                   <td class="p-2"><?= $data['data_one']['no_resi'] ?></td>
                 </tr>
                 <tr>
+                  <td class="p-2">No Pengiriman</td>
+                  <td class="p-2">:</td>
+                  <td class="p-2"><?= $data['data_one']['no_pengiriman'] ?></td>
+                </tr>
+                <tr>
                   <td class="p-2">Tgl Kirim</td>
                   <td class="p-2">:</td>
                   <td class="p-2">

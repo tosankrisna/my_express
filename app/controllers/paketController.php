@@ -44,8 +44,9 @@ if ($aksi === 'tambah') {
   $total_bayar = htmlspecialchars($_POST['total_bayar']);
   $status_paket = htmlspecialchars($_POST['status_paket']);
   $keterangan = htmlspecialchars($_POST['keterangan']);
+  $no_pengiriman = 'P' . $kurir . date('Ymd');
 
-  $paket->addPaket($nama_pengirim, $jenis_kelamin_pengirim, $no_telp_pengirim, $alamat_pengirim, $provinsi_pengirim, $kabupaten_pengirim, $kecamatan_pengirim, $kode_pos_pengirim, $id_penginput, $nama_penerima, $jenis_kelamin_penerima, $no_telp_penerima, $alamat_penerima, $provinsi_penerima, $kabupaten_penerima, $kecamatan_penerima, $kode_pos_penerima, $nama_paket, $berat_paket, $jenis_paket, $jenis_packing, $layanan, $kurir, $nomor_resi, $total_bayar, $status_paket, $keterangan, $session_level);
+  $paket->addPaket($nama_pengirim, $jenis_kelamin_pengirim, $no_telp_pengirim, $alamat_pengirim, $provinsi_pengirim, $kabupaten_pengirim, $kecamatan_pengirim, $kode_pos_pengirim, $id_penginput, $nama_penerima, $jenis_kelamin_penerima, $no_telp_penerima, $alamat_penerima, $provinsi_penerima, $kabupaten_penerima, $kecamatan_penerima, $kode_pos_penerima, $nama_paket, $berat_paket, $jenis_paket, $jenis_packing, $layanan, $kurir, $nomor_resi, $total_bayar, $status_paket, $keterangan, $session_level, $no_pengiriman);
 
   header('Location: ../views/dashboard/pages/paket.php');
 } else if ($aksi === 'edit') {
@@ -85,8 +86,9 @@ if ($aksi === 'tambah') {
   $id_penerima = htmlspecialchars($_POST['id_penerima']);
   $id_paket = htmlspecialchars($_POST['id_paket']);
   $id_tracking = htmlspecialchars($_POST['id_tracking']);
+  $no_pengiriman = htmlspecialchars($_POST['no_pengiriman']);
 
-  $paket->editPaket($nama_pengirim, $jenis_kelamin_pengirim, $no_telp_pengirim, $alamat_pengirim, $provinsi_pengirim, $kabupaten_pengirim, $kecamatan_pengirim, $kode_pos_pengirim, $id_penginput, $nama_penerima, $jenis_kelamin_penerima, $no_telp_penerima, $alamat_penerima, $provinsi_penerima, $kabupaten_penerima, $kecamatan_penerima, $kode_pos_penerima, $nama_paket, $berat_paket, $jenis_paket, $jenis_packing, $layanan, $kurir, $nomor_resi, $total_bayar, $status_paket, $keterangan, $session_level, $id_alamat_penerima, $id_alamat_pengirim, $id_pengirim, $id_penerima, $id_paket, $id_tracking);
+  $paket->editPaket($nama_pengirim, $jenis_kelamin_pengirim, $no_telp_pengirim, $alamat_pengirim, $provinsi_pengirim, $kabupaten_pengirim, $kecamatan_pengirim, $kode_pos_pengirim, $id_penginput, $nama_penerima, $jenis_kelamin_penerima, $no_telp_penerima, $alamat_penerima, $provinsi_penerima, $kabupaten_penerima, $kecamatan_penerima, $kode_pos_penerima, $nama_paket, $berat_paket, $jenis_paket, $jenis_packing, $layanan, $kurir, $nomor_resi, $total_bayar, $status_paket, $keterangan, $session_level, $id_alamat_penerima, $id_alamat_pengirim, $id_pengirim, $id_penerima, $id_paket, $id_tracking, $no_pengiriman);
   header('Location: ../views/dashboard/components/cardDetailPaket.php?id=' . $id_paket);
 } else if ($aksi === 'hapus') {
   $paket->hapusPaket($id_paket, $id_pengirim, $id_penerima, $id_alamat_pengirim, $id_alamat_penerima, $id_tracking, $page);

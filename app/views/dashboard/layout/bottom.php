@@ -40,6 +40,7 @@
 <script src="../../../assets/js/confirmMessage.js"></script>
 <script src="../../../assets/js/totalBayar.js"></script>
 <script src="../../../assets/js/generateResi.js"></script>
+<script src="../../../assets/js/filter.js"></script>
 </body>
 </body>
 
