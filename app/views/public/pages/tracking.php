@@ -155,13 +155,7 @@ $paket = new Paket;
                         <tr>
                           <td class="p-2">Estimasi sampai</td>
                           <td class="p-2">:</td>
-                          <?php if ($data['data_one']['layanan'] === 'regular') { ?>
-                            <td class="p-2">3-5 Hari</td>
-                          <?php } else if ($data['data_one']['layanan'] === 'ekonomi') { ?>
-                            <td class="p-2">3-5 Hari</td>
-                          <?php } else { ?>
-                            <td class="p-2">1 Hari</td>
-                          <?php } ?>
+                          <td class="p-2"><?= $paket->estimasiSampai($data['data_one']['layanan'], $data['data_one']['tgl_kirim']) ?></td>
                         </tr>
                         <tr>
                           <td class="p-2">Keterangan</td>

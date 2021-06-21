@@ -218,4 +218,18 @@ class Paket extends Db
       return array('res' => $res, 'menu' => $menu);
     }
   }
+
+  public function estimasiSampai($layanan, $tglKirim)
+  {
+    if ($layanan === 'regular') {
+      $tglEstimasi = date('d M Y', strtotime('+5 days', strtotime($tglKirim)));
+      return $tglEstimasi;
+    } else if ($layanan === 'ekonomi') {
+      $tglEstimasi = date('d M Y', strtotime('+7 days', strtotime($tglKirim)));
+      return $tglEstimasi;
+    } else {
+      $tglEstimasi = date('d M Y', strtotime('+1 days', strtotime($tglKirim)));
+      return $tglEstimasi;
+    }
+  }
 }
