@@ -261,7 +261,7 @@ $data = $paket->detailPaket($id);
               </a>
             <?php } ?>
           <?php } else if ($_SESSION['level'] === 'customer service') { ?>
-            <a href="formEditPaket.php?id=<?= $data['data_one']['id_paket'] ?>" class="btn btn-md btn-primary text-white mr-2">
+            <a href="cetakBilling.php?id=<?= $data['data_one']['id_paket'] ?>" class="btn btn-md btn-primary text-white mr-2">
               <i class="fas fa-print mr-1"></i>Cetak Billing
             </a>
             <?php if ($data['data_one']['status_paket'] === 'belum dikirim') { ?>
