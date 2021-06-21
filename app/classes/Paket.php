@@ -13,26 +13,26 @@ class Paket extends Db
 
   public function getTotal()
   {
-    $sql = "SELECT tb_paket.*, tb_tracking.* FROM tb_paket JOIN tb_tracking ON tb_paket.id_paket = tb_tracking.id_paket WHERE tb_tracking.status_paket != 'selesai dikirim'";
+    $sql = "SELECT tb_paket.*, tb_tracking.* FROM tb_paket JOIN tb_tracking ON tb_paket.id_paket = tb_tracking.id_paket WHERE tb_tracking.status_paket != 'selesai dikirim' AND tb_tracking.status_paket != 'terlambat dikirim' AND tb_tracking.status_paket != 'gagal dikirim'";
     return count($this->db->multiView($sql));
   }
 
   public function getTotalByKurir($id)
   {
-    $sql = "SELECT tb_paket.*, tb_tracking.* FROM tb_paket JOIN tb_tracking ON tb_paket.id_paket = tb_tracking.id_paket WHERE tb_tracking.status_paket != 'selesai dikirim' AND tb_paket.id_kurir = '$id'";
+    $sql = "SELECT tb_paket.*, tb_tracking.* FROM tb_paket JOIN tb_tracking ON tb_paket.id_paket = tb_tracking.id_paket WHERE tb_tracking.status_paket != 'selesai dikirim' AND tb_tracking.status_paket != 'terlambat dikirim' AND tb_paket.id_kurir = '$id'";
     return count($this->db->multiView($sql));
   }
 
   public function viewPaket()
   {
-    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_tracking.no_resi, tb_tracking.status_paket, tb_tracking.keterangan, tb_tracking.no_pengiriman, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.status_paket != 'selesai dikirim' AND tb_tracking.status_paket != 'gagal dikirim' ORDER BY tb_paket.id_paket DESC";
+    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_tracking.no_resi, tb_tracking.status_paket, tb_tracking.keterangan, tb_tracking.no_pengiriman, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.status_paket != 'selesai dikirim' AND tb_tracking.status_paket != 'gagal dikirim' AND tb_tracking.status_paket != 'terlambat dikirim' ORDER BY tb_paket.id_paket DESC";
 
     return $this->db->multiView($sql);
   }
 
   public function viewPaketKurir($id)
   {
-    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_paket.id_kurir, tb_tracking.id_tracking, tb_tracking.no_resi, tb_tracking.no_pengiriman, tb_tracking.keterangan, tb_tracking.status_paket, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.status_paket != 'selesai dikirim' AND tb_tracking.status_paket != 'gagal dikirim' AND tb_paket.id_kurir = '$id' ORDER BY tb_paket.id_paket DESC";
+    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_paket.id_kurir, tb_tracking.id_tracking, tb_tracking.no_resi, tb_tracking.no_pengiriman, tb_tracking.keterangan, tb_tracking.status_paket, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.status_paket != 'selesai dikirim' AND tb_tracking.status_paket != 'gagal dikirim' AND tb_tracking.status_paket != 'terlambat dikirim' AND tb_paket.id_kurir = '$id' ORDER BY tb_paket.id_paket DESC";
 
     return $this->db->multiView($sql);
   }
@@ -107,14 +107,14 @@ class Paket extends Db
 
   public function searchPaket($keyword)
   {
-    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_tracking.no_resi, tb_tracking.no_pengiriman, tb_tracking.status_paket, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.no_resi LIKE '%$keyword%' OR tb_tracking.no_pengiriman LIKE '%$keyword%' ORDER BY tb_paket.id_paket DESC";
+    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_tracking.no_resi, tb_tracking.no_pengiriman, tb_tracking.status_paket, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.no_resi LIKE '%$keyword%' OR tb_tracking.no_pengiriman LIKE '%$keyword%' OR tb_tracking.status_paket LIKE '%$keyword%' ORDER BY tb_paket.id_paket DESC";
 
     return $this->db->multiView($sql);
   }
 
   public function searchPaketKurir($id, $keyword)
   {
-    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_paket.id_kurir, tb_tracking.no_resi, tb_tracking.no_pengiriman, tb_tracking.status_paket, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.no_resi LIKE '%$keyword%' OR tb_tracking.no_pengiriman LIKE '%$keyword%' AND tb_paket.id_kurir = '$id' ORDER BY tb_paket.id_paket DESC";
+    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_paket.id_kurir, tb_tracking.no_resi, tb_tracking.no_pengiriman, tb_tracking.status_paket, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.no_resi LIKE '%$keyword%' OR tb_tracking.no_pengiriman LIKE '%$keyword%' OR tb_tracking.status_paket LIKE '%$keyword%' AND tb_paket.id_kurir = '$id' ORDER BY tb_paket.id_paket DESC";
 
     return $this->db->multiView($sql);
   }
@@ -147,15 +147,19 @@ class Paket extends Db
 
   public function detailUpdateTracking($id)
   {
-    $sql = "SELECT * FROM tb_tracking WHERE id_tracking = '$id'";
+    $sql = "SELECT tb_paket.*, tb_tracking.* FROM tb_paket JOIN tb_tracking ON tb_paket.id_paket = tb_tracking.id_paket WHERE tb_tracking.id_tracking = '$id'";
 
     return $this->db->singleView($sql);
   }
 
-  public function updateTracking($status_paket, $keterangan, $tgl_kirim, $id_tracking)
+  public function updateTracking($status_paket, $keterangan, $tgl_kirim, $id_tracking, $estimasi)
   {
     if ($status_paket === 'selesai dikirim') {
-      $sql = "UPDATE tb_tracking SET status_paket = '$status_paket', keterangan = '$keterangan', tgl_kirim = '$tgl_kirim', tgl_terima = NOW() WHERE id_tracking = '$id_tracking'";
+      if ($estimasi < date('d M Y')) {
+        $sql = "UPDATE tb_tracking SET status_paket = 'terlambat dikirim', keterangan = '$keterangan', tgl_kirim = '$tgl_kirim', tgl_terima = NOW() WHERE id_tracking = '$id_tracking'";
+      } else {
+        $sql = "UPDATE tb_tracking SET status_paket = '$status_paket', keterangan = '$keterangan', tgl_kirim = '$tgl_kirim', tgl_terima = NOW() WHERE id_tracking = '$id_tracking'";
+      }
     } else if ($status_paket === 'sedang dikirim') {
       $sql = "UPDATE tb_tracking SET status_paket = '$status_paket', keterangan = '$keterangan', tgl_kirim = '$tgl_kirim', tgl_terima = NULL WHERE id_tracking = '$id_tracking'";
     } else {
@@ -167,7 +171,7 @@ class Paket extends Db
 
   public function viewHistory()
   {
-    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_tracking.no_resi, tb_tracking.no_pengiriman, tb_tracking.status_paket, tb_tracking.keterangan, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.status_paket = 'selesai dikirim' OR tb_tracking.status_paket = 'gagal dikirim' ORDER BY tb_paket.id_paket DESC";
+    $sql = "SELECT tb_paket.nama_paket, tb_paket.id_paket, tb_tracking.no_resi, tb_tracking.no_pengiriman, tb_tracking.status_paket, tb_tracking.keterangan, tb_pengirim.nama_pengirim, tb_penerima.nama_penerima, tb_kurir.nama_kurir, tb_paket.total_bayar FROM tb_tracking JOIN tb_paket ON tb_tracking.id_paket = tb_paket.id_paket JOIN tb_penerima ON tb_paket.id_penerima = tb_penerima.id_penerima JOIN tb_pengirim ON tb_paket.id_pengirim = tb_pengirim.id_pengirim JOIN tb_kurir ON tb_paket.id_kurir = tb_kurir.id_kurir WHERE tb_tracking.status_paket = 'selesai dikirim' OR tb_tracking.status_paket = 'gagal dikirim' OR tb_tracking.status_paket = 'terlambat dikirim' ORDER BY tb_paket.id_paket DESC";
 
     return $this->db->multiView($sql);
   }
@@ -175,7 +179,7 @@ class Paket extends Db
   public function filterPaket($filterCount, $filterName)
   {
     if ($filterCount == 'terbanyak' && $filterName == 'alamat') {
-      $sql = "SELECT alamat, kabupaten, COUNT(*) AS counts FROM tb_alamat GROUP BY alamat, kabupaten HAVING COUNT(*) >= 1 ORDER BY COUNT(*) DESC";
+      $sql = "SELECT tb_alamat.alamat, tb_alamat.kabupaten, COUNT(*) AS counts FROM tb_alamat JOIN tb_pengirim ON tb_alamat.id_alamat = tb_pengirim.id_alamat GROUP BY alamat, kabupaten HAVING COUNT(*) >= 1 ORDER BY COUNT(*) DESC";
       $menu = ['No', 'Alamat', 'Total'];
 
       $res = $this->db->multiView($sql);
@@ -196,7 +200,7 @@ class Paket extends Db
 
       return array('res' => $res, 'menu' => $menu);
     } else if ($filterCount == 'tersedikit' && $filterName == 'alamat') {
-      $sql = "SELECT alamat, kabupaten, COUNT(*) AS counts FROM tb_alamat GROUP BY alamat, kabupaten HAVING COUNT(*) >= 1 ORDER BY COUNT(*) ASC";
+      $sql = "SELECT tb_alamat.alamat, tb_alamat.kabupaten, COUNT(*) AS counts FROM tb_alamat JOIN tb_pengirim ON tb_alamat.id_alamat = tb_pengirim.id_alamat GROUP BY alamat, kabupaten HAVING COUNT(*) >= 1 ORDER BY COUNT(*) ASC";
       $menu = ['No', 'Alamat', 'Total'];
 
       $res = $this->db->multiView($sql);

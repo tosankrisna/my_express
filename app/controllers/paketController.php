@@ -86,7 +86,7 @@ if ($aksi === 'tambah') {
   $id_penerima = htmlspecialchars($_POST['id_penerima']);
   $id_paket = htmlspecialchars($_POST['id_paket']);
   $id_tracking = htmlspecialchars($_POST['id_tracking']);
-  $no_pengiriman = htmlspecialchars($_POST['no_pengiriman']);
+  $no_pengiriman = 'P' . $kurir . date('Ymd');
 
   $paket->editPaket($nama_pengirim, $jenis_kelamin_pengirim, $no_telp_pengirim, $alamat_pengirim, $provinsi_pengirim, $kabupaten_pengirim, $kecamatan_pengirim, $kode_pos_pengirim, $id_penginput, $nama_penerima, $jenis_kelamin_penerima, $no_telp_penerima, $alamat_penerima, $provinsi_penerima, $kabupaten_penerima, $kecamatan_penerima, $kode_pos_penerima, $nama_paket, $berat_paket, $jenis_paket, $jenis_packing, $layanan, $kurir, $nomor_resi, $total_bayar, $status_paket, $keterangan, $session_level, $id_alamat_penerima, $id_alamat_pengirim, $id_pengirim, $id_penerima, $id_paket, $id_tracking, $no_pengiriman);
   header('Location: ../views/dashboard/components/cardDetailPaket.php?id=' . $id_paket);
@@ -100,7 +100,8 @@ if ($aksi === 'tambah') {
   $status_paket = $_POST['status_paket'];
   $keterangan = $_POST['keterangan'];
   $tgl_kirim = $_POST['tgl_kirim'];
+  $estimasi = $_POST['estimasi'];
 
-  $paket->updateTracking($status_paket, $keterangan, $tgl_kirim, $id_tracking);
+  $paket->updateTracking($status_paket, $keterangan, $tgl_kirim, $id_tracking, $estimasi);
   header('Location: ../views/dashboard/pages/paket.php');
 }

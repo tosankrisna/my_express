@@ -53,6 +53,7 @@ $data = $paket->detailUpdateTracking($id);
                   </div>
                   <div class="form-group">
                     <input type="hidden" name="tgl_kirim" value="<?= $data['tgl_kirim'] ?>">
+                    <input type="text" name="estimasi" value="<?= $paket->estimasiSampai($data['layanan'], $data['tgl_kirim']) ?>">
                   </div>
                 </div>
                 <!-- /.card-body -->

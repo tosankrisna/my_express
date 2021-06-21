@@ -30,14 +30,14 @@ if (isset($_POST['submit'])) {
           </div>
           <div class="col-12 col-md-6">
             <form action="" method="post" class="form-inline d-flex justify-content-center justify-content-md-end">
-              <input class="form-control mr-sm-2 w-50" type="search" name="search" placeholder="Masukan Nomor Resi atau Nomor Pengiriman" aria-label="Search">
+              <input class="form-control mr-sm-2 w-50" type="search" name="search" placeholder="Masukan No Resi, No Pengiriman, atau Status" aria-label="Search">
               <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="submit"><i class="fas fa-search"></i></button>
             </form>
           </div>
         <?php } else { ?>
           <div class="col-12 col-md-6 offset-6">
             <form action="" method="post" class="form-inline d-flex justify-content-center justify-content-md-end">
-              <input class="form-control mr-sm-2 w-50" type="search" name="search" placeholder="Masukan Nomor Resi atau Nomor Pengiriman" aria-label="Search">
+              <input class="form-control mr-sm-2 w-50" type="search" name="search" placeholder="Masukan No Resi, No Pengiriman, atau Status" aria-label="Search">
               <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="submit"><i class="fas fa-search"></i></button>
             </form>
           </div>

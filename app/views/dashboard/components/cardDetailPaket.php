@@ -192,6 +192,15 @@ $data = $paket->detailPaket($id);
                     <?php } ?>
                   </td>
                 </tr>
+                <?php if ($data['data_one']['tgl_kirim'] !== NULL) { ?>
+                  <tr>
+                    <td class="p-2">Estimasi Sampai</td>
+                    <td class="p-2">:</td>
+                    <td class="p-2">
+                      <?= $paket->estimasiSampai($data['data_one']['layanan'], $data['data_one']['tgl_kirim']) ?>
+                    </td>
+                  </tr>
+                <?php } ?>
               </table>
             </div>
           </div>
@@ -235,7 +244,7 @@ $data = $paket->detailPaket($id);
           </div>
         </div>
         <div class="text-center mt-5 mb-3">
-          <?php if ($_SESSION['level'] === 'kurir' && $data['data_one']['status_paket'] !== 'selesai dikirim') { ?>
+          <?php if ($_SESSION['level'] === 'kurir' && $data['data_one']['status_paket'] !== 'selesai dikirim' && $data['data_one']['status_paket'] !== 'terlambat dikirim') { ?>
             <a href="formUpdateTracking.php?id=<?= $data['data_one']['id_tracking'] ?>" class="btn btn-md btn-secondary text-white mr-2">
               <i class="fas fa-pen mr-1"></i>Update Tracking
             </a>
