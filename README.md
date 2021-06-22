@@ -8,3 +8,17 @@ CARA INSTALASI PROGRAM :
 5) PILIH DATABASE TERSEBUT LALU KLIK IMPORT
 6) MASUK KE FOLDER "C:\xampp\htdocs\my_express\app\database" LALU IMPORT DATABASE TERSEBUT
 7) JALANKAN PROGRAM DENGAN MENGETIKAN localhost/my_express PADA BROWSER
+
+SILAHKAN MASUKAN AKUN BERIKUT UNTUK LOGIN :
+
+- ADMIN
+   username : tosankrisna
+   password : admin123
+   
+- CS
+   username : syuja
+   password : cs123
+   
+- Kurir
+   username : ardian
+   password : kurir123
